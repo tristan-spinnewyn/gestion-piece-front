@@ -14,7 +14,6 @@ export function getInStore(key){
     if(stringData){
         return JSON.parse(stringData)
     }
-
     return false
 }
 

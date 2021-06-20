@@ -22,7 +22,7 @@ export default function Login(props) {
             const data = await loginApi(login.email,login.pwd)
             setUserLocalStorage(data)
             context.setConnected(true)
-            props.history.push("/")
+            document.location.href = '/'
         }catch(e){
             context.setConnected(false)
             if(e == "Error: Request failed with status code 401"){

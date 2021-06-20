@@ -49,7 +49,7 @@ function App() {
                                 contextValue.setConnected(false)
                                 logout()
                                 console.log("disconnected")
-                                return <Login/>
+                                document.location.href = '/'
                             }}/>
                             <PrivateRoute path="/"/>
                         </Switch>
