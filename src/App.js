@@ -15,6 +15,9 @@ import User from './pages/user';
 import {toast} from 'react-toastify'
 import AddUser from "./pages/addUser";
 import UpdateUser from "./pages/updateUser";
+import PlanTravail from "./pages/plan_travail";
+import AddPlanTravail from "./pages/addPlanTravail";
+import UpdatePlanTravail from "./pages/updatePlanTravail";
 
 toast.configure()
 
@@ -44,6 +47,9 @@ function App() {
                             <PrivateRoute path="/utilisateur/:id" component={(props)=> <UpdateUser id={props.match.params.id} />} />
                             <PrivateRoute path="/utilisateur" component={User}/>
                             <PrivateRoute path="/add_user" component={AddUser}/>
+                            <PrivateRoute path="/plan_travail/:id"component={(props)=> <UpdatePlanTravail id={props.match.params.id} />} />
+                            <PrivateRoute path="/plan_travail" component={PlanTravail} />
+                            <PrivateRoute path="/add_plan" component={AddPlanTravail}/>
 
                             <Route path="/logout" render={() => {
                                 contextValue.setConnected(false)

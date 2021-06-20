@@ -61,3 +61,9 @@ export async function updateUser(data){
     const response = await axios.put(url,data,HEADER)
     return response.data
 }
+
+export async function getOuvrier(){
+    const url = `${URL}/users/ouvrier`
+    const response = await axios.get(url,HEADER)
+    return response.data
+}
