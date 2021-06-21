@@ -37,6 +37,7 @@ export default function Header() {
             if ((role.label_right === "Gestion" || role.label_right === "Admin") && !compta) {
                 menu.push({
                     nom: "Comptabilité", url: '#', sousMenu: [
+                        {nom: 'Fournisseur', url: '/fournisseur'},
                         {nom: 'Achat', url: '/achat'}
                     ]
                 })

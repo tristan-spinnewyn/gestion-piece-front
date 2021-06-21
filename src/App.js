@@ -21,6 +21,9 @@ import UpdatePlanTravail from "./pages/updatePlanTravail";
 import Machine from "./pages/machine";
 import AddMachine from "./pages/addMachine";
 import UpdateMachine from "./pages/updateMachine";
+import Fournisseur from "./pages/fournisseur";
+import AddFournisseur from "./pages/addFournisseur";
+import UpdateFournisseur from "./pages/updateFournisseur";
 
 toast.configure()
 
@@ -56,6 +59,9 @@ function App() {
                             <PrivateRoute path="/machine" component={Machine}/>
                             <PrivateRoute path="/add_machine" component={AddMachine}/>
                             <PrivateRoute path="/add_plan" component={AddPlanTravail}/>
+                            <PrivateRoute path="/fournisseur/:id"component={(props)=> <UpdateFournisseur id={props.match.params.id} />} />
+                            <PrivateRoute path="/fournisseur" component={Fournisseur}/>
+                            <PrivateRoute path="/add_fournisseur" component={AddFournisseur}/>
 
                             <Route path="/logout" render={() => {
                                 contextValue.setConnected(false)
