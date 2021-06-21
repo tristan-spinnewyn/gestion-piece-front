@@ -78,7 +78,7 @@ function Qualification(props) {
             <h2>Utilisateur qualifié</h2>
             <form onSubmit={handleSubmit} className="row gx-3 gy-2 align-items-center">
                 <div className="col-sm-6">
-                    <SelectLabel change={handleChange} label="utilisateur" multiple={false} name="user_id" value={userSelect.user_id} options={users} defaultOption={true}/>
+                    <SelectLabel sentenceOption="Veuillez selectionner un utilisateur" change={handleChange} label="utilisateur" multiple={false} name="user_id" value={userSelect.user_id} options={users} defaultOption={true}/>
                 </div>
                 <div className="col-sm-6">
                     <button className="btn btn-primary">Ajouter l'utilisateur</button>

@@ -18,6 +18,9 @@ import UpdateUser from "./pages/updateUser";
 import PlanTravail from "./pages/plan_travail";
 import AddPlanTravail from "./pages/addPlanTravail";
 import UpdatePlanTravail from "./pages/updatePlanTravail";
+import Machine from "./pages/machine";
+import AddMachine from "./pages/addMachine";
+import UpdateMachine from "./pages/updateMachine";
 
 toast.configure()
 
@@ -49,6 +52,9 @@ function App() {
                             <PrivateRoute path="/add_user" component={AddUser}/>
                             <PrivateRoute path="/plan_travail/:id"component={(props)=> <UpdatePlanTravail id={props.match.params.id} />} />
                             <PrivateRoute path="/plan_travail" component={PlanTravail} />
+                            <PrivateRoute path="/machine/:id"component={(props)=> <UpdateMachine id={props.match.params.id} />} />
+                            <PrivateRoute path="/machine" component={Machine}/>
+                            <PrivateRoute path="/add_machine" component={AddMachine}/>
                             <PrivateRoute path="/add_plan" component={AddPlanTravail}/>
 
                             <Route path="/logout" render={() => {
