@@ -27,8 +27,8 @@ export default function Header() {
             }
             if ((role.label_right === "Ouvrier" || role.label_right === "Admin") && !ouvrier) {
                 menu.push({
-                    nom: "gestion des espaces de travails", url: '#', sousMenu: [
-                        {nom: 'Plan de travail', url: '/plan_travail'},
+                    nom: "Atelier", url: '#', sousMenu: [
+                        {nom: 'Poste de travail', url: '/plan_travail'},
                         {nom: 'Machine', url: '/machine'}
                     ]
                 })

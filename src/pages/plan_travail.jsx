@@ -18,7 +18,7 @@ function PlanTravail(props) {
 
     return (
         <div className="container">
-            <Link to="/add_plan" className="btn btn-primary">Ajouter un plan de travail</Link>
+            <Link to="/add_plan" className="btn btn-primary">Ajouter un poste de travail</Link>
             <table className="table">
                 <thead>
                 <tr>

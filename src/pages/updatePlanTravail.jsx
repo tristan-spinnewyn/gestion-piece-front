@@ -43,9 +43,9 @@ function UpdatePlanTravail(props) {
 
     return (
         <div className="container">
-            <h2>Modification du plan de travail</h2>
+            <h2>Modification du poste de travail</h2>
             <form onSubmit={handleSubmit}>
-                <InputLabel name="label_travail" value={plan.label_travail} change={handleChange} type="text" label="Label plan de travail" placeholder="Label plan de travail"/>
+                <InputLabel name="label_travail" value={plan.label_travail} change={handleChange} type="text" label="Label poste de travail" placeholder="Label plan de travail"/>
                 <button className="btn btn-primary">Modifier</button>
             </form>
             <Qualification id={props.id}/>
