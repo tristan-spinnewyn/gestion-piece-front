@@ -29,7 +29,8 @@ export default function Header() {
                 menu.push({
                     nom: "Atelier", url: '#', sousMenu: [
                         {nom: 'Poste de travail', url: '/plan_travail'},
-                        {nom: 'Machine', url: '/machine'}
+                        {nom: 'Machine', url: '/machine'},
+                        {nom:'Pièce',url:'/piece'}
                     ]
                 })
                 ouvrier = true
