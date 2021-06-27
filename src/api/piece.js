@@ -42,3 +42,4 @@ export async function updateGamme(data){
     const response = await axios.put(url,data,HEADER)
     return response.data
 }
+

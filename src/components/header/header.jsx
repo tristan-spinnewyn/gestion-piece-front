@@ -30,7 +30,9 @@ export default function Header() {
                     nom: "Atelier", url: '#', sousMenu: [
                         {nom: 'Poste de travail', url: '/plan_travail'},
                         {nom: 'Machine', url: '/machine'},
-                        {nom:'Pièce',url:'/piece'}
+                        {nom:'Pièce',url:'/piece'},
+                        {nom:'Opération',url:'/operation'},
+                        {nom:'Gamme',url:'/gamme'}
                     ]
                 })
                 ouvrier = true

@@ -27,6 +27,11 @@ import UpdateFournisseur from "./pages/updateFournisseur";
 import Piece from "./pages/piece";
 import AddPiece from "./pages/addPiece";
 import UpdatePiece from "./pages/updatePiece";
+import Operation from "./pages/operation";
+import AddOperation from "./pages/addOperation";
+import UpdateOperation from "./pages/updateOperation";
+import Gamme from "./pages/gamme";
+import UpdateGamme from "./pages/updateGamme";
 
 toast.configure()
 
@@ -68,6 +73,12 @@ function App() {
                             <PrivateRoute path="/piece/:id" component={(props)=> <UpdatePiece id={props.match.params.id} />}/>
                             <PrivateRoute path="/piece" component={Piece}/>
                             <PrivateRoute path="/add_piece" component={AddPiece}/>
+                            <PrivateRoute path="/operation/:id" component={(props)=> <UpdateOperation id={props.match.params.id} />}/>
+                            <PrivateRoute path="/operation" component={Operation}/>
+                            <PrivateRoute path="/add_operation" component={AddOperation}/>
+                            <PrivateRoute path="/gamme/:id" component={(props)=> <UpdateGamme id={props.match.params.id} />} />
+                            <PrivateRoute path="/gamme" component={Gamme}/>
+
 
                             <Route path="/logout" render={() => {
                                 contextValue.setConnected(false)
