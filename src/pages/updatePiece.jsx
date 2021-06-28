@@ -6,6 +6,7 @@ import {formHandleChange} from "../services/formService";
 import SelectLabel from "../components/form/selectLabel";
 import InputLabel from "../components/form/inputLabel";
 import GammePiece from "../components/piece/gammePiece";
+import Composition from "../components/piece/composition";
 
 function UpdatePiece(props) {
     const [piece, setPiece] = useState({type_id:'',prix_achat:0,prix_vente:0,lib_piece:'',fournisseur_id:null,quantite:0,id:''});
@@ -96,6 +97,9 @@ function UpdatePiece(props) {
 
                 <button className="btn btn-primary">Modifier la pièce</button>
             </form>
+            <div className={displayGamme ? '' : 'none'}>
+                <Composition id={props.id}/>
+            </div>
         </div>
     );
 }

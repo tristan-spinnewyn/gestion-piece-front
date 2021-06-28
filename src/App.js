@@ -32,6 +32,10 @@ import AddOperation from "./pages/addOperation";
 import UpdateOperation from "./pages/updateOperation";
 import Gamme from "./pages/gamme";
 import UpdateGamme from "./pages/updateGamme";
+import MatPrem from "./pages/matPrem";
+import AddMatPrem from "./pages/addMatPrem";
+import UpdateMatPrem from "./pages/updateMatPrem";
+import Realisation from "./pages/realisation";
 
 toast.configure()
 
@@ -78,6 +82,10 @@ function App() {
                             <PrivateRoute path="/add_operation" component={AddOperation}/>
                             <PrivateRoute path="/gamme/:id" component={(props)=> <UpdateGamme id={props.match.params.id} />} />
                             <PrivateRoute path="/gamme" component={Gamme}/>
+                            <PrivateRoute path="/mat_prem/:id" component={(props)=> <UpdateMatPrem id={props.match.params.id} />} />
+                            <PrivateRoute path="/mat_prem" component={MatPrem}/>
+                            <PrivateRoute path="/add_mat_prem" component={AddMatPrem}/>
+                            <PrivateRoute path="/realisation" component={Realisation}/>
 
 
                             <Route path="/logout" render={() => {

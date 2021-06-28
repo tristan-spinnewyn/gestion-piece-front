@@ -32,7 +32,9 @@ export default function Header() {
                         {nom: 'Machine', url: '/machine'},
                         {nom:'Pièce',url:'/piece'},
                         {nom:'Opération',url:'/operation'},
-                        {nom:'Gamme',url:'/gamme'}
+                        {nom:'Gamme',url:'/gamme'},
+                        {nom: 'Matière première',url:'/mat_prem'},
+                        {nom:'Réalisation',url:'/realisation'}
                     ]
                 })
                 ouvrier = true
