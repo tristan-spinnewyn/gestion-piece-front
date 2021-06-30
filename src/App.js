@@ -36,6 +36,7 @@ import MatPrem from "./pages/matPrem";
 import AddMatPrem from "./pages/addMatPrem";
 import UpdateMatPrem from "./pages/updateMatPrem";
 import Realisation from "./pages/realisation";
+import UpdateRealisation from "./pages/updateRealisation";
 
 toast.configure()
 
@@ -85,8 +86,8 @@ function App() {
                             <PrivateRoute path="/mat_prem/:id" component={(props)=> <UpdateMatPrem id={props.match.params.id} />} />
                             <PrivateRoute path="/mat_prem" component={MatPrem}/>
                             <PrivateRoute path="/add_mat_prem" component={AddMatPrem}/>
+                            <PrivateRoute path="/realisation/:id" component={(props)=> <UpdateRealisation id={props.match.params.id} />} />
                             <PrivateRoute path="/realisation" component={Realisation}/>
-
 
                             <Route path="/logout" render={() => {
                                 contextValue.setConnected(false)

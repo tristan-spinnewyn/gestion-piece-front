@@ -20,7 +20,7 @@ function FormRea(props) {
             setGamme(gammeArray)
         }catch (e) {
             console.log(e)
-            toast.erro("Une erreur est survenue.")
+            toast.error("Une erreur est survenue.")
         }
     },[])
     const handleChange = (event)=>{

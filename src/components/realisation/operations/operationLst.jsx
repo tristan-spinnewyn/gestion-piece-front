@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {toast} from "react-toastify";
-import {deleteGammeOpp, getAllOperation, getOperationGamme, insertOppGamme} from "../../api/operation";
-import SelectLabel from "../form/selectLabel";
-import {formHandleChange} from "../../services/formService";
-import InputLabel from "../form/inputLabel";
+import {getAllOperation} from "../../../api/operation";
+import SelectLabel from "../../form/selectLabel";
+import {formHandleChange} from "../../../services/formService";
+import {addOperationRealisation, deleteRealisationOperation, getRealisationOperation} from "../../../api/realisation";
 
-function OperationGamme(props) {
+function OperationLst(props) {
     const [operations,setOperation] = useState([])
-    const [operation_gamme,setOppGamme] = useState({operation_id:'',gamme_id:props.id,ordre:''})
+    const [operation_realisation,setOppRea] = useState({operation_id:'',realisation_id:props.id})
     const [gammeOpp,setGammeOpp] = useState([])
     const [change,setChange] = useState(0)
 
@@ -28,7 +28,7 @@ function OperationGamme(props) {
 
     useEffect(async()=>{
         try{
-            setGammeOpp(await getOperationGamme(props.id))
+            setGammeOpp(await getRealisationOperation(props.id))
         }catch (e) {
             console.log(e)
             toast.error("Une erreur est survenue.")
@@ -36,17 +36,17 @@ function OperationGamme(props) {
     },[change])
 
     const handleChange = (event)=>{
-        formHandleChange(event,operation_gamme,setOppGamme)
+        formHandleChange(event,operation_realisation,setOppRea)
     }
 
     const handleSubmit = async (event)=>{
         event.preventDefault()
         try{
-            if(operation_gamme.operation_id === '' || operation_gamme.ordre === ''){
+            if(operation_realisation.operation_id === ''){
                 toast.warn("Veuillez remplir tout les champs")
                 return
             }
-            await insertOppGamme(operation_gamme)
+            await addOperationRealisation(operation_realisation)
             setChange(change +1 )
         }catch (e) {
             console.log(e)
@@ -57,7 +57,7 @@ function OperationGamme(props) {
     const handleDelete = async(id)=>{
         try{
             if(window.confirm("Etes vous sur de vouloir supprimer cette opération de cette gamme ?")) {
-                await deleteGammeOpp(props.id, id)
+                await deleteRealisationOperation(props.id, id)
                 setChange(change + 1)
                 toast.success("L'opération est bien supprimé de cette gamme.")
             }
@@ -70,11 +70,8 @@ function OperationGamme(props) {
     return (
         <div>
             <form onSubmit={handleSubmit} className="row gx-3 gy-2 align-items-center">
-                <div className="col-sm-6">
-                    <SelectLabel label="Opération" change={handleChange} defaultOption={true} sentenceOption="Veuillez choisir une opération" name="operation_id" value={operation_gamme.operation_id} options={operations}/>
-                </div>
-                <div className="col-sm-3">
-                    <InputLabel label="Ordre" change={handleChange} type="number" value={operation_gamme.ordre} name="ordre" placeholder="Ordre"/>
+                <div className="col-sm-9">
+                    <SelectLabel label="Opération" change={handleChange} defaultOption={true} sentenceOption="Veuillez choisir une opération" name="operation_id" value={operation_realisation.operation_id} options={operations}/>
                 </div>
                 <div className="col-sm-3">
                     <button className="btn btn-primary">Ajouter</button>
@@ -83,7 +80,6 @@ function OperationGamme(props) {
             <table className="table">
                 <thead>
                 <th>Operation</th>
-                <th>Ordre</th>
                 <th>Action</th>
                 </thead>
                 <tbody>
@@ -104,4 +100,4 @@ function OperationGamme(props) {
     );
 }
 
-export default OperationGamme;
+export default OperationLst;
