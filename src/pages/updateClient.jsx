@@ -39,7 +39,7 @@ function UpdateClient(props) {
 
     return (
         <div className="container">
-            <h2>Modifier le fournisseur</h2>
+            <h2>Modifier le client</h2>
             <form onSubmit={handleSubmit}>
                 <InputLabel name="name_cli" value={client.name_cli} change={handleChange} type="text" label="Nom du client" placeholder="Nom du client"/>
                 <InputLabel name="adresse_cli" value={client.adresse_cli} change={handleChange} type="text" label="Adresse" placeholder="Adresse"/>
