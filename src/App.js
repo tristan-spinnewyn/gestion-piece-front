@@ -40,6 +40,9 @@ import UpdateRealisation from "./pages/updateRealisation";
 import Achat from "./pages/achat";
 import UpdateAchat from "./pages/updateAchat";
 import AddAchat from "./pages/addAchat";
+import Client from "./pages/client";
+import AddClient from "./pages/addClient";
+import UpdateClient from "./pages/updateClient";
 
 toast.configure()
 
@@ -95,6 +98,10 @@ function App() {
                             <PrivateRoute path="/achat/:id" component={(props)=> <UpdateAchat id={props.match.params.id} />} />
                             <PrivateRoute path="/achat" component={Achat}/>
                             <PrivateRoute path="/add_achat" component={AddAchat}/>
+
+                            <PrivateRoute path="/client/:id" component={(props)=> <UpdateClient id={props.match.params.id} />} />
+                            <PrivateRoute path="/client" component={Client}/>
+                            <PrivateRoute path="/add_client" component={AddClient}/>
 
                             <Route path="/logout" render={() => {
                                 contextValue.setConnected(false)
