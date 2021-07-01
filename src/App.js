@@ -46,6 +46,9 @@ import UpdateClient from "./pages/updateClient";
 import UpdateDevis from "./pages/updateDevis";
 import Devis from "./pages/devis";
 import AddDevis from "./pages/addDevis";
+import Commande from "./pages/commande";
+import UpdateCommande from "./pages/updateCommande";
+import AddCommande from "./pages/addCommande";
 
 toast.configure()
 
@@ -109,6 +112,10 @@ function App() {
                             <PrivateRoute path="/devis/:id" component={(props)=> <UpdateDevis id={props.match.params.id} />} />
                             <PrivateRoute path="/devis" component={Devis}/>
                             <PrivateRoute path="/add_devis" component={AddDevis}/>
+
+                            <PrivateRoute path="/commande/:id" component={(props)=> <UpdateCommande id={props.match.params.id} />} />
+                            <PrivateRoute path="/commande" component={Commande}/>
+                            <PrivateRoute path="/add_commande" component={AddCommande}/>
 
                             <Route path="/logout" render={() => {
                                 contextValue.setConnected(false)

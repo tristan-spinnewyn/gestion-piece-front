@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {formHandleChange} from "../services/formService";
+import {getAllClient} from "../api/client";
 import {toast} from "react-toastify";
+import {addDevis} from "../api/devis";
 import SelectLabel from "../components/form/selectLabel";
 import InputLabel from "../components/form/inputLabel";
-import {getAllClient} from "../api/client";
-import {addDevis} from "../api/devis";
+import {addCommande} from "../api/commande";
 
-function AddDevis(props) {
+function AddCommande(props) {
     const [client,setClient] = useState([])
-    const [devis,setDevis] = useState({client_id:null,date_devis:'',date_limite:''})
+    const [commande,setCommande] = useState({client_id:null,date_commande:''})
 
     const handleChange = (event)=>{
-        formHandleChange(event,devis,setDevis)
+        formHandleChange(event,commande,setCommande)
     }
     useEffect(async()=>{
         try{
@@ -30,13 +31,13 @@ function AddDevis(props) {
     const handleSubmit = async(event)=>{
         event.preventDefault()
         try{
-            if(devis.date_devis === '' || devis.date_limite === '' || devis.client_id === null){
+            if(commande.date_commande === '' || commande.client_id === null){
                 toast.warn("Veuillez remplir tout les champs")
                 return
             }
             if(window.confirm("Attention, les données saisie ne pourrons plus être modifié. Voulez vous continuer ?")) {
-                const data = await addDevis(devis)
-                props.history.push(`/devis/${data.id}`)
+                const data = await addCommande(commande)
+                props.history.push(`/commande/${data.id}`)
             }else{
                 return
             }
@@ -48,15 +49,14 @@ function AddDevis(props) {
     return (
         <div>
             <h2>Ajouter un devis</h2>
-            <p>Le contenu du devis pourra être complété à la prochaine étape.</p>
+            <p>Le contenu de la commande pourra être complété à la prochaine étape.</p>
             <form onSubmit={handleSubmit}>
-                <SelectLabel label="Client" value={devis.client_id} defaultOption={true} sentenceOption="Veuillez choisir un client" options={client} name="client_id" change={handleChange}/>
-                <InputLabel label="Date du devis" value={devis.date_devis} name="date_devis" type="date" change={handleChange} placeholder="Date du devis"/>
-                <InputLabel label="Date limite" change={handleChange} type="date" value={devis.date_limite} name="date_limite" placeholder="Date limite."/>
+                <SelectLabel label="Client" value={commande.client_id} defaultOption={true} sentenceOption="Veuillez choisir un client" options={client} name="client_id" change={handleChange}/>
+                <InputLabel label="Date de commande" value={commande.date_commande} name="date_commande" type="date" change={handleChange} placeholder="Date de la commande"/>
                 <button className="btn btn-primary">Valider</button>
             </form>
         </div>
     );
 }
 
-export default AddDevis;
+export default AddCommande;
