@@ -12,7 +12,7 @@ function Devis(props) {
         try{
             const devisApi = await getAllDevis()
             for(let i =0;i < devisApi.length; i++){
-                const ligneDevis = await getLigneDevis(devisApi[i].id)
+                const ligneDevis = await getLigneDevis(devisApi[i].iddevis)
                 let montant = 0
                 ligneDevis.map((dataLigne)=>{
                     montant = montant + (dataLigne.prix*dataLigne.qte)
