@@ -43,3 +43,9 @@ export async function updateGamme(data){
     return response.data
 }
 
+export async function getPieceAVendre(){
+    const url = `${URL}/piece_vendre`
+    const response = await axios.get(url,HEADER)
+    return response.data
+}
+
