@@ -34,7 +34,6 @@ function UpdateClient(props) {
             console.log(e)
             toast.error("Une erreur est survenue.")
         }
-
     }
 
     return (
