@@ -37,6 +37,9 @@ import AddMatPrem from "./pages/addMatPrem";
 import UpdateMatPrem from "./pages/updateMatPrem";
 import Realisation from "./pages/realisation";
 import UpdateRealisation from "./pages/updateRealisation";
+import Achat from "./pages/achat";
+import UpdateAchat from "./pages/updateAchat";
+import AddAchat from "./pages/addAchat";
 
 toast.configure()
 
@@ -63,6 +66,7 @@ function App() {
                         <Header/>
                         <Switch>
                             <Route path="/login" component={Login}/>
+
                             <PrivateRoute path="/utilisateur/:id" component={(props)=> <UpdateUser id={props.match.params.id} />} />
                             <PrivateRoute path="/utilisateur" component={User}/>
                             <PrivateRoute path="/add_user" component={AddUser}/>
@@ -88,6 +92,9 @@ function App() {
                             <PrivateRoute path="/add_mat_prem" component={AddMatPrem}/>
                             <PrivateRoute path="/realisation/:id" component={(props)=> <UpdateRealisation id={props.match.params.id} />} />
                             <PrivateRoute path="/realisation" component={Realisation}/>
+                            <PrivateRoute path="/achat/:id" component={(props)=> <UpdateAchat id={props.match.params.id} />} />
+                            <PrivateRoute path="/achat" component={Achat}/>
+                            <PrivateRoute path="/add_achat" component={AddAchat}/>
 
                             <Route path="/logout" render={() => {
                                 contextValue.setConnected(false)
